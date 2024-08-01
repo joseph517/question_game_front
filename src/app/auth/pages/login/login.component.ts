@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { UserLogin } from '../../interfaces/auth.interface';
 
 @Component({
   selector: 'auth-login',
@@ -11,42 +12,44 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
    constructor(
-
     private authService: AuthService,
     private router: Router
-
    ) { }
 
    public loginForm = new FormGroup({
 
-    email: new FormControl<string>('', [Validators.required, Validators.email], ),
-    password: new FormControl<string>('', Validators.required)
+    email: new FormControl('', [Validators.required, Validators.email], ),
+    password: new FormControl('', Validators.required)
 
   });
 
   onSubmit() {
+    if (!this.loginForm.valid){
+      console.log('Formulario no válido');
+      return;
+    }
 
-    console.log(this.loginForm.value);
+    const payLoad: UserLogin = {
+      email: this.loginForm.get('email')?.value!,
+      password: this.loginForm.get('password')?.value!
+    }
 
-    if (this.loginForm.invalid) return;
-
-    this.authService.login(this.loginForm.value as Form)
-      
+    this.authService.login(payLoad)      
       .subscribe(
-
-        res => {
-
-        localStorage.setItem('token', res.access);
-
-        this.router.navigate(['/dashboard']);
-
+      (res) => {
+        console.log(res);
+        this.router.navigate(['/home/dashboard']);
       },
-
     (err) => {
-
       console.log(err);
-
     });
+
+  }
+
+  isValidField(field: string){
+
+    return this.authService.isValidField(this.loginForm, field);
+
 
   }
 
