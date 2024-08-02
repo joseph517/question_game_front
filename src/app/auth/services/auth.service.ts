@@ -3,7 +3,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/enviroments/enviroments';
 import { Form, FormGroup } from '@angular/forms';
 import { TokenLogin, UserLogin } from '../interfaces/auth.interface';
-import { Observable, take, tap } from 'rxjs';
+import { Observable, of, take, tap } from 'rxjs';
 
 
 
@@ -51,5 +51,18 @@ export class AuthService {
   logout(){
     localStorage.removeItem('token');
   }
+
+  getUserData() {
+
+    return localStorage.getItem('userName');
+  }
+
+  checkAuthentication(): Observable<boolean> {
+    console.log(localStorage.getItem('access_token'));
+    
+    if (!localStorage.getItem('access_token')) return of(false);
+    return of(true);
+  }
+
 
 }

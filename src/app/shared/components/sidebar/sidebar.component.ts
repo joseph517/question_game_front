@@ -19,11 +19,11 @@ export class SidebarComponent {
   public sideMenu = [
     {
       name: 'Games',
-      route: 'games'
+      route: '/home/games'
     },
     {
       name: 'Ranking',
-      route: 'ranking'
+      route: '/home/ranking'
     }
   ]
 

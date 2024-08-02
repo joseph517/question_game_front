@@ -7,10 +7,20 @@ import { RankingComponent } from "./pages/ranking/ranking.component";
 
 const routes: Routes = [
 
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'games', component: GamesComponent },
-    { path: 'ranking', component: RankingComponent },
-    { path: '**', redirectTo: 'dashboard' }
+    // { path: 'dashboard', component: DashboardComponent },
+    // { path: 'games', component: GamesComponent },
+    // { path: 'ranking', component: RankingComponent },
+    // { path: '**', redirectTo: 'dashboard' }
+
+    {
+        path: '',
+        component: DashboardComponent,
+        children: [
+            { path: 'games', component: GamesComponent },
+            { path: 'ranking', component: RankingComponent },
+            { path: '**', redirectTo: 'games' }
+        ]
+    }
     
 ];
 

@@ -31,7 +31,7 @@
             </span>
               </div>
           
-              <button
+              <button *ngIf="loginForm.valid"
                   class="btn btn-primary mt-4" 
                   type="submit"
               >
@@ -39,6 +39,10 @@
               </button>
           </div>
       </form>        
+  </div>
+
+  <div *ngIf="!hideModal" class="modal-dialog modal-dialog-centered">
+    <span>Credenciales incorrectas</span>
   </div>
 
 </div>

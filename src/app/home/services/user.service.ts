@@ -13,7 +13,6 @@ export class UserService {
     getUsersData(): string {
 
         const userName = localStorage.getItem('userName');
-        console.log(userName)
         
         if(!userName) return '';
         

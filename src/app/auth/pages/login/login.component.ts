@@ -16,6 +16,9 @@ export class LoginComponent {
     private router: Router
    ) { }
 
+
+   public hideModal = true;
+
    public loginForm = new FormGroup({
 
     email: new FormControl('', [Validators.required, Validators.email], ),
@@ -37,10 +40,13 @@ export class LoginComponent {
     this.authService.login(payLoad)      
       .subscribe(
       (res) => {
-        console.log(res);
         this.router.navigate(['/home/dashboard']);
       },
     (err) => {
+      console.log('Error en el login');
+
+      this.hideModal = false;
+      
       console.log(err);
     });
 
