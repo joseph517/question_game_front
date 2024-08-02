@@ -1,1 +1,7 @@
-<p>games works!</p>
+<div *ngFor="let games of gameList" class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{games.name_game}}</h5>
+    <p class="card-text">{{games.description}}.</p>
+    <button href="#" class="btn btn-primary">Ir al cuestionario</button>
+  </div>
+</div>
