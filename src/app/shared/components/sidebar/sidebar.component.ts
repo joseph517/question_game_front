@@ -14,17 +14,21 @@ export class SidebarComponent {
     private router: Router
   ) { }
 
+  @Input() idRanking: string = '';
+
   @Input() userName: string = '';
+
+  
 
   public sideMenu = [
     {
       name: 'Games',
       route: '/home/games'
     },
-    {
-      name: 'Ranking',
-      route: '/home/ranking'
-    }
+    // {
+    //   name: 'Ranking',
+    //   route: '/home/ranking'
+    // }
   ]
 
   logout(){
