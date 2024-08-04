@@ -1,8 +1,10 @@
 <div>
-    <div *ngFor="let questions of questionList" class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{questions.question}}</h5>
-           
-        </div>
-    </div>
+    <ul class="list-group">
+        <li *ngFor="let questions of questionList let i = index"
+            class="list-group-item"
+        >
+           {{i+1}}. {{questions.question}}
+        </li>
+
+    </ul>
 </div>
