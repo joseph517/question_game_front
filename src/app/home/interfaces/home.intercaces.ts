@@ -4,3 +4,24 @@ export interface GameList {
     description: string;
     users: number[];
 }
+
+export interface QuestionList {
+    id:       number;
+    options:  Option[];
+    question: string;
+    score:    number;
+    game:     number;
+}
+
+export interface Option {
+    id:         number;
+    option:     string;
+    is_correct: boolean;
+    question:   number;
+}
+
+export interface RankingList {
+    user__name: string;
+    score:      number;
+}
+

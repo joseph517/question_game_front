@@ -7,7 +7,9 @@ import { GamesComponent } from './pages/games/games.component';
 import { RankingComponent } from './pages/ranking/ranking.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { GameListComponent } from './pages/game-list/game-list.component';
-import { GameFormComponent } from './pages/game-form/game-form.component';
+import { GameFormComponent } from './components/game-form/game-form.component';
+import { QuestionsListComponent } from './pages/questions-list/questions-list.component';
+import { QuestionCardComponent } from './components/question-card/question-card.component';
 
 
 
@@ -18,7 +20,9 @@ import { GameFormComponent } from './pages/game-form/game-form.component';
     RankingComponent,
     GameCardComponent,
     GameListComponent,
-    GameFormComponent
+    GameFormComponent,
+    QuestionsListComponent,
+    QuestionCardComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,8 @@
     <div class="card-body">
       <h5 class="card-title">{{games.name_game}}</h5>
       <p class="card-text">{{games.description}}.</p>
-      <button (click)="goToGameForm(games.id, games.name_game)" class="btn btn-primary">Ir al cuestionario</button>
+      <button (click)="goToGame(games.id, games.name_game)" class="btn btn-primary">Ir al cuestionario</button>
     </div>
   </div>
+
+  <home-game-form [dataFomGame]="data"></home-game-form>

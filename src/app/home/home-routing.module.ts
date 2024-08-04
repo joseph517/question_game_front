@@ -4,7 +4,7 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { GamesComponent } from "./pages/games/games.component";
 import { RankingComponent } from "./pages/ranking/ranking.component";
 import { GameListComponent } from "./pages/game-list/game-list.component";
-import { GameFormComponent } from "./pages/game-form/game-form.component";
+import { QuestionsListComponent } from "./pages/questions-list/questions-list.component";
 
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
                 component: GamesComponent,
                 children: [
                     { path: 'list', component: GameListComponent },
-                    { path: 'form', component: GameFormComponent },
+                    { path: 'questions-list', component: QuestionsListComponent },
                     { path: '**', redirectTo: 'list' }
                 ]
             },
@@ -26,7 +26,6 @@ const routes: Routes = [
             { path: '**', redirectTo: 'games' }
         ]
     }
-    
 ];
 
 @NgModule({

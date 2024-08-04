@@ -1,1 +1,8 @@
-<p>ranking works!</p>
+<div>
+    <div *ngFor="let ranking of rankingList" class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ranking.user__name}}</h5>
+            <p class="card-text">{{ranking.score}}</p>
+        </div>
+    </div>
+</div>
