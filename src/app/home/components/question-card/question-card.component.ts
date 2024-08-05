@@ -16,9 +16,8 @@ export class QuestionCardComponent implements OnInit {
     
   }
 
-  goToQuestion(id: number){
-    console.log(id)
+  goToQuestion(question: QuestionList){
+    console.log(question);
+    console.log(question.options);
   }
-
-
 }

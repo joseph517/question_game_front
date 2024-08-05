@@ -3,7 +3,7 @@
     <!-- Position Column -->
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i+1}} </td>
     </ng-container>
 
     <!-- Name Column -->
@@ -22,7 +22,7 @@
     <ng-container matColumnDef="realizar">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button (click)="goToQuestion(element.id)" class="btn btn-primary">Ir a la pregunta</button>
+        <button (click)="goToQuestion(element)" class="btn btn-primary">Ir a la pregunta</button>
       </td>
     </ng-container>
 
