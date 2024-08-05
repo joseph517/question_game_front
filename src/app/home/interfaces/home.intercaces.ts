@@ -24,4 +24,6 @@ export interface RankingList {
     user__name: string;
     score:      number;
 }
-
+export interface Validate {
+    message: string;
+}

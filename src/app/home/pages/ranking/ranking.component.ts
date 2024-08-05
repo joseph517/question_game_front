@@ -18,12 +18,12 @@ export class RankingComponent implements OnChanges {
   ) { }
 
   ngOnChanges(): void {
-    this.userService.getRankingGame(this.idGameRanking).subscribe((res) => {
-      this.rankingList = res
-    },
-    (err) => {
-      console.log('error',err)
-    })
+    // this.userService.getRankingGame(this.idGameRanking).subscribe((res) => {
+    //   this.rankingList = res
+    // },
+    // (err) => {
+    //   console.log('error',err)
+    // })
   }
 
 }
