@@ -1,10 +1,33 @@
-<div>
-    <ul class="list-group">
-        <li *ngFor="let questions of questionList let i = index"
-            class="list-group-item"
-        >
-           {{i+1}}. {{questions.question}}
-        </li>
+<table mat-table [dataSource]="questionList" class="mat-elevation-z8">
 
-    </ul>
-</div>
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Pregunta </th>
+      <td mat-cell *matCellDef="let element"> {{element.question}} </td>
+    </ng-container>
+
+    <!-- Puntos Column -->
+    <ng-container matColumnDef="puntos">
+      <th mat-header-cell *matHeaderCellDef> Puntos </th>
+      <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+    </ng-container>
+
+    <!-- Button Column -->
+    <ng-container matColumnDef="realizar">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="goToQuestion(element.id)" class="btn btn-primary">Ir a la pregunta</button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

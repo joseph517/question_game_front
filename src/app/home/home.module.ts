@@ -11,6 +11,8 @@ import { GameFormComponent } from './components/game-form/game-form.component';
 import { QuestionsListComponent } from './pages/questions-list/questions-list.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
 
+import { MaterialModule } from '../material/material.module';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { QuestionCardComponent } from './components/question-card/question-card.
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class HomeModule { }

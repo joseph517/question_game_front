@@ -10,8 +10,14 @@ export class QuestionCardComponent implements OnInit {
   
   @Input() questionList: QuestionList[] = [];
 
+  displayedColumns: string[] = ['position', 'name', 'puntos', 'realizar'];
+
   ngOnInit(): void {
     
+  }
+
+  goToQuestion(id: number){
+    console.log(id)
   }
 
 
