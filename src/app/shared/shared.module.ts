@@ -18,7 +18,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   exports: [
     SidebarComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }
