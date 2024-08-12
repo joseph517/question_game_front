@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!onLoading">
     
 
   <div class="form-container">
@@ -44,5 +44,10 @@
   <div *ngIf="!hideModal" class="modal-dialog modal-dialog-centered">
     <span>Credenciales incorrectas</span>
   </div>
+
+  
+</div>
+<div *ngIf="onLoading">
+    <span>Cargando...</span>
 
 </div>

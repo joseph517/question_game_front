@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { QuestionList } from '../../interfaces/home.intercaces';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -15,13 +18,22 @@ export class QuestionsListComponent implements OnInit {
   idGame: string = ''
 
   constructor(
-    private userService : UserService
+    private userService : UserService,
+    private router: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.userService.getQuestionList().subscribe((res) => {
+    this.idGame = this.router.snapshot.params['id']
+    this.getQuestionList()
+  }
+
+  getQuestionList(){
+    this.userService.getQuestionList(this.idGame).subscribe((res) => {
       this.questionList = res
-      this.idGame = res[0].game.toString()
     })
+  }
+
+  onAnswer(){
+    this.getQuestionList()
   }
 }

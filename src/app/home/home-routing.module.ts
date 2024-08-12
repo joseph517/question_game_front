@@ -18,7 +18,7 @@ const routes: Routes = [
                 component: GamesComponent,
                 children: [
                     { path: 'list', component: GameListComponent },
-                    { path: 'questions-list', component: QuestionsListComponent },
+                    { path: 'questions-list/:id', component: QuestionsListComponent },
                     { path: '**', redirectTo: 'list' }
                 ]
             },

@@ -57,9 +57,9 @@ export class AuthService {
     return localStorage.getItem('userName');
   }
 
-  checkAuthentication(): Observable<boolean> {
-    if (!localStorage.getItem('access_token')) return of(false);
-    return of(true);
+  checkAuthentication(): boolean {
+    if (!localStorage.getItem('token')) return false;
+    return true;
   }
 
 

@@ -17,46 +17,41 @@ export class LoginComponent {
    ) { }
 
 
+   public onLoading = false;
    public hideModal = true;
-
    public loginForm = new FormGroup({
 
-    email: new FormControl('', [Validators.required, Validators.email], ),
-    password: new FormControl('', Validators.required)
+  email: new FormControl('', [Validators.required, Validators.email], ),
+  password: new FormControl('', Validators.required)
 
   });
 
   onSubmit() {
-    if (!this.loginForm.valid){
-      console.log('Formulario no válido');
-      return;
-    }
-
-    const payLoad: UserLogin = {
-      email: this.loginForm.get('email')?.value!,
-      password: this.loginForm.get('password')?.value!
-    }
-
-    this.authService.login(payLoad)      
-      .subscribe(
-      (res) => {
-        this.router.navigate(['/home/dashboard']);
-      },
-    (err) => {
-      console.log('Error en el login');
-
-      this.hideModal = false;
-      
-      console.log(err);
-    });
-
+    this.onLoading = true;
+    setTimeout(() => {
+      if (!this.loginForm.valid){
+        console.log('Formulario no válido');
+        return;
+      }
+      const payLoad: UserLogin = {
+        email: this.loginForm.get('email')?.value!,
+        password: this.loginForm.get('password')?.value!
+      }
+      this.authService.login(payLoad)      
+        .subscribe(
+        (res) => {
+          this.router.navigate(['/home/dashboard']);
+        },
+      (err) => {
+        console.log('Error en el login');
+        this.hideModal = false;
+        console.log(err);
+      });
+    }, 1000)
   }
 
   isValidField(field: string){
-
     return this.authService.isValidField(this.loginForm, field);
-
-
   }
 
 }

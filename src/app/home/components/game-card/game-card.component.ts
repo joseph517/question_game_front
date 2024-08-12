@@ -22,7 +22,7 @@ export class GameCardComponent {
 
   goToGame(id: number, name: string) {
     this.data = { id: id, name: name };
-    this.router.navigate(['home/games/questions-list']);
+    this.router.navigate(['home/games/questions-list', this.data.id]);
   }
   
   

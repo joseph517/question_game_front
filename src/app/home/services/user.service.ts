@@ -32,9 +32,9 @@ export class UserService {
         })
     }
 
-    getQuestionList(): Observable<QuestionList[]> {
+    getQuestionList(idGame: string): Observable<QuestionList[]> {
         const token = this.sharedService.getToken();
-        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/`, {
+        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/${idGame}/`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

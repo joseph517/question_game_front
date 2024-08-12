@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { QuestionList } from '../../interfaces/home.intercaces';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
@@ -24,6 +24,8 @@ export class QuestionCardComponent {
   columnsToDisplayWithExpand = [...this.columnsToDisplay];
   expandedElement: QuestionList | null | undefined;
 
+  @Output() onAnswer = new EventEmitter();
+
   optionSelected: number = 0;
   form: FormGroup = new FormGroup({});
 
@@ -46,6 +48,7 @@ export class QuestionCardComponent {
         console.log(res.message)
       }else{
         console.log(res.message)}
+      this.onAnswer.emit()
     },(err)=>{
       console.log(err)
     })
