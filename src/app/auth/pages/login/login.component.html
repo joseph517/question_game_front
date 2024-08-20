@@ -41,13 +41,25 @@
       </form>        
   </div>
 
-  <div *ngIf="!hideModal" class="modal-dialog modal-dialog-centered">
-    <span>Credenciales incorrectas</span>
+  <div *ngIf="!hideModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Credenciales incorrectas</h5>  
+        </div>
+        <div class="modal-body">
+          <p>Por favor verifique sus credenciales e intente nuevamente</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="hideModal = true">Cerrar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   
 </div>
 <div *ngIf="onLoading">
-    <span>Cargando...</span>
+    <shared-loading-spinner></shared-loading-spinner>
 
 </div>

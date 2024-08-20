@@ -22,6 +22,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           // confirm('Sesión expirada, por favor inicia sesión de nuevo');
           console.log('Sesión expirada, por favor inicia sesión de nuevo');
+          localStorage.clear();
           this.router.navigate(['/auth/login']);
         }
         // Handle the error here

@@ -39,11 +39,9 @@ export class QuestionCardComponent implements OnChanges, OnInit {
   ){}
 
   ngOnInit(): void {
-    console.log(this.questionList)
   }
   
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('hola', changes)
     if(changes['questionList'] && !changes['questionList'].firstChange){
       if(this.questionList.length === 0){
         this.route.navigate(['/home/games']) 

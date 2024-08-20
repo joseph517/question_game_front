@@ -25,43 +25,25 @@ export class UserService {
 
     getGameList(): Observable<Game[]> {
         const token = this.sharedService.getToken();
-        return this.http.get<Game[]>(`${this.baseUrl}/games/list/`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        return this.http.get<Game[]>(`${this.baseUrl}/games/list/`)
     }
 
     getQuestionList(idGame: string): Observable<QuestionList[]> {
-        const token = this.sharedService.getToken();
-        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/${idGame}/`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/${idGame}/`)
     }
 
     getRankingGame(idGame: string): Observable<RankingList[]> {
         const token = this.sharedService.getToken();
-        return this.http.get<any>(`${this.baseUrl}/games/ranking/${idGame}/`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        return this.http.get<any>(`${this.baseUrl}/games/ranking/${idGame}/`)
     }
     
     getValidateQuestion(idQuestion: string, idOption: string): Observable<Validate> {
-        console.log('ha')
         const token = this.sharedService.getToken();
         const formData: FormData = new FormData();
         formData.append('question_id', idQuestion);
         formData.append('option_id', idOption);
 
-        const headers = new HttpHeaders({
-            'Authorization': `Bearer ${token}`,
-          });
-
-        return this.http.post<Validate>(`${this.baseUrl}/questions/validate/`, formData, {headers})
+        return this.http.post<Validate>(`${this.baseUrl}/questions/validate/`, formData)
     }
     
 }

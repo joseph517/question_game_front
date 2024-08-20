@@ -44,10 +44,12 @@ export class LoginComponent {
         },
       (err) => {
         console.log('Error en el login');
+        this.router.navigate(['/auth/login']);
         this.hideModal = false;
+        this.onLoading = false;
         console.log(err);
       });
-    }, 1000)
+    }, 500)
   }
 
   isValidField(field: string){

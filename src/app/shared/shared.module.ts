@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
-    SidebarComponent
+    SidebarComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     SidebarComponent,
     FormsModule,
     ReactiveFormsModule,
-  ]
+    LoadingSpinnerComponent
+    ]
 })
 export class SharedModule { }

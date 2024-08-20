@@ -1,7 +1,7 @@
-    <div class="card-body">
+    <div class="card-body game-card">
       <h5 class="card-title">{{game.name_game}}</h5>
       <p class="card-text">{{game.description}}.</p>
-     <div *ngIf="!loading">
+     <div class="button-container" *ngIf="!loading">
       <button *ngIf="!isEmptyQuestionList" 
         (click)="goToGame(game.id, game.name_game)" 
         class="btn btn-primary"
