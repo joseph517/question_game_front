@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/enviroments/enviroments';
-import { GameList, QuestionList, RankingList, Validate } from '../interfaces/home.intercaces';
+import { Game, QuestionList, RankingList, Validate } from '../interfaces/home.intercaces';
 import { SharedService } from 'src/app/shared/services/shared.services';
 
 @Injectable({
@@ -23,9 +23,9 @@ export class UserService {
         return userName
     }
 
-    getGameList(): Observable<GameList[]> {
+    getGameList(): Observable<Game[]> {
         const token = this.sharedService.getToken();
-        return this.http.get<GameList[]>(`${this.baseUrl}/games/list/`, {
+        return this.http.get<Game[]>(`${this.baseUrl}/games/list/`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

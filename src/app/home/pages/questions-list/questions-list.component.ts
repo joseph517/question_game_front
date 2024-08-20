@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { QuestionList } from '../../interfaces/home.intercaces';
 import { Router } from '@angular/router';
@@ -16,10 +16,11 @@ export class QuestionsListComponent implements OnInit {
 
   questionList : QuestionList[] = []
   idGame: string = ''
+  showQuestionList: boolean = true
 
   constructor(
     private userService : UserService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -32,8 +33,12 @@ export class QuestionsListComponent implements OnInit {
       this.questionList = res
     })
   }
-
+  
   onAnswer(){
     this.getQuestionList()
+  }
+  onQuestionAnswered(){
+    console.log('question answered')
+    this.showQuestionList = false
   }
 }

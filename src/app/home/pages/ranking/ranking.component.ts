@@ -7,7 +7,7 @@ import { RankingList } from '../../interfaces/home.intercaces';
   templateUrl: './ranking.component.html',
   styleUrls: ['./ranking.component.css']
 })
-export class RankingComponent implements OnChanges {
+export class RankingComponent {
 
   @Input() idGameRanking: string = ''
 
@@ -16,14 +16,5 @@ export class RankingComponent implements OnChanges {
   constructor(
     private userService : UserService,
   ) { }
-
-  ngOnChanges(): void {
-    // this.userService.getRankingGame(this.idGameRanking).subscribe((res) => {
-    //   this.rankingList = res
-    // },
-    // (err) => {
-    //   console.log('error',err)
-    // })
-  }
 
 }

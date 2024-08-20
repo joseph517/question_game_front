@@ -1,1 +1,3 @@
-<home-game-card [gameList]="gameList"></home-game-card>
+<div *ngFor="let games of gameList" class="card">
+    <home-game-card [game]="games"></home-game-card>
+  </div>

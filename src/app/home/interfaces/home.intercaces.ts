@@ -1,4 +1,4 @@
-export interface GameList {
+export interface Game {
     id: number;
     name_game: string;
     description: string;

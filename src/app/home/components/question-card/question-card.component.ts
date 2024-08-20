@@ -1,8 +1,9 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { QuestionList } from '../../interfaces/home.intercaces';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { UserService } from '../../services/user.service';
     ]),
   ],
 })
-export class QuestionCardComponent {
+export class QuestionCardComponent implements OnChanges, OnInit {
   
   @Input() questionList: QuestionList[] = [];
   columnsToDisplay: string[] = [ 'name', 'puntos'];
@@ -25,15 +26,31 @@ export class QuestionCardComponent {
   expandedElement: QuestionList | null | undefined;
 
   @Output() onAnswer = new EventEmitter();
+  
+  @Output() onQuestionAnswered = new EventEmitter();
+
 
   optionSelected: number = 0;
-  form: FormGroup = new FormGroup({});
 
-  formControls: { [key: string]: FormControl } = {};
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private route: Router
   ){}
+
+  ngOnInit(): void {
+    console.log(this.questionList)
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('hola', changes)
+    if(changes['questionList'] && !changes['questionList'].firstChange){
+      if(this.questionList.length === 0){
+        this.route.navigate(['/home/games']) 
+        this.onQuestionAnswered.emit()
+      }
+    }
+  }
 
   onOptionSelected(optionId: number) {
     console.log('option',optionId)

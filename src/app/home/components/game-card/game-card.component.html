@@ -1,9 +1,16 @@
-<div *ngFor="let games of gameList" class="card">
     <div class="card-body">
-      <h5 class="card-title">{{games.name_game}}</h5>
-      <p class="card-text">{{games.description}}.</p>
-      <button (click)="goToGame(games.id, games.name_game)" class="btn btn-primary">Ir al cuestionario</button>
+      <h5 class="card-title">{{game.name_game}}</h5>
+      <p class="card-text">{{game.description}}.</p>
+     <div *ngIf="!loading">
+      <button *ngIf="!isEmptyQuestionList" 
+        (click)="goToGame(game.id, game.name_game)" 
+        class="btn btn-primary"
+      >Resolver</button>
+      <span>
+        <p *ngIf="isEmptyQuestionList">Cuestionario resuelto</p>
+      </span>
+     </div>
+      <span *ngIf="loading">Cargando...</span>
     </div>
-  </div>
 
-  <!-- <home-game-form [dataFomGame]="data"></home-game-form> -->
+    <!-- <home-game-form [dataFomGame]="data"></home-game-form> -->

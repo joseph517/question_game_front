@@ -40,7 +40,7 @@ export class AuthService {
     .pipe(
       tap((res)=>{
         localStorage.setItem('token', res.access);
-        localStorage.setItem('userName', JSON.stringify(res.name));
+        localStorage.setItem('userName', res.name);
         localStorage.setItem('rol', JSON.stringify(res.rol));
         localStorage.setItem('user_id', JSON.stringify(res.user_id));
       })

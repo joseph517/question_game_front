@@ -20,7 +20,7 @@ export class SidebarComponent {
 
   public sideMenu = [
     {
-      name: 'Games',
+      name: 'Cuestionarios',
       route: '/home/games'
     },
   ]
