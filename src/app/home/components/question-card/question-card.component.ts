@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { QuestionList } from '../../interfaces/home.intercaces';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -24,18 +24,15 @@ export class QuestionCardComponent implements OnChanges, OnInit {
   columnsToDisplay: string[] = [ 'name', 'puntos'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay];
   expandedElement: QuestionList | null | undefined;
-
   @Output() onAnswer = new EventEmitter();
-  
   @Output() onQuestionAnswered = new EventEmitter();
-
-
   optionSelected: number = 0;
 
 
   constructor(
     private userService: UserService,
-    private route: Router
+    private route: Router,
+    private _snackBar: MatSnackBar
   ){}
 
   ngOnInit(): void {
@@ -51,7 +48,6 @@ export class QuestionCardComponent implements OnChanges, OnInit {
   }
 
   onOptionSelected(optionId: number) {
-    console.log('option',optionId)
     this.optionSelected = optionId
   }
   goToValidateQuestion(questionId: number){
@@ -60,12 +56,19 @@ export class QuestionCardComponent implements OnChanges, OnInit {
 
     this.userService.getValidateQuestion(question, optionId).subscribe((res)=>{
       if(res.message === 'Respuesta correcta'){
-        console.log(res.message)
+        this.openSnackbar(res.message)
       }else{
-        console.log(res.message)}
+        this.openSnackbar(res.message)
+      }
       this.onAnswer.emit()
     },(err)=>{
       console.log(err)
     })
-  } 
+  }
+
+  openSnackbar(message: string ) {
+   this._snackBar.open(message, 'Cerrar', {duration: 2000} )    
+  }
+
+  
 }

@@ -21,6 +21,7 @@ export class GameCardComponent implements OnInit {
   @Input() game: Game = { id: 0, name_game: '', description: '', users: [] };
   isEmptyQuestionList: boolean = false  
   loading: boolean = false
+
   
   
   constructor(
@@ -51,6 +52,4 @@ export class GameCardComponent implements OnInit {
     this.data = { id: id, name: name };
     this.router.navigate(['home/games/questions-list', this.data.id]);
   }
-  
-  
 }
