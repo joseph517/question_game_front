@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class SharedService {
     
     getToken() {
-        return localStorage.getItem('token');
+        return sessionStorage.getItem('access_token');
     }
-    
 }

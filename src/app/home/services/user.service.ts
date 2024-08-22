@@ -24,7 +24,6 @@ export class UserService {
     }
 
     getGameList(): Observable<Game[]> {
-        const token = this.sharedService.getToken();
         return this.http.get<Game[]>(`${this.baseUrl}/games/list/`)
     }
 

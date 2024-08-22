@@ -69,6 +69,5 @@ export class QuestionCardComponent implements OnChanges, OnInit {
   openSnackbar(message: string ) {
    this._snackBar.open(message, 'Cerrar', {duration: 2000} )    
   }
-
   
 }

@@ -39,7 +39,8 @@ export class AuthService {
     return this.http.post<TokenLogin>(`${this.baseUrl}/token/`, form)
     .pipe(
       tap((res)=>{
-        localStorage.setItem('token', res.access);
+        console.log(res);
+        sessionStorage.setItem('access_token', res.access_token);
         localStorage.setItem('userName', res.name);
         localStorage.setItem('rol', JSON.stringify(res.rol));
         localStorage.setItem('user_id', JSON.stringify(res.user_id));
@@ -49,7 +50,7 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('access_token');
   }
 
   getUserData() {
@@ -58,7 +59,7 @@ export class AuthService {
   }
 
   checkAuthentication(): boolean {
-    if (!localStorage.getItem('token')) return false;
+    if (!sessionStorage.getItem('access_token')) return false;
     return true;
   }
 

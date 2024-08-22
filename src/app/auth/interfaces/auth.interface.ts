@@ -1,6 +1,6 @@
 export interface TokenLogin {
     refresh: string;
-    access:  string;
+    access_token:  string;
     user_id: number;
     rol:     boolean;
     name:    string;
