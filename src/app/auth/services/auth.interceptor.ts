@@ -19,7 +19,6 @@ export class AuthInterceptor implements HttpInterceptor {
     const authToken = sessionStorage.getItem('access_token');
     if (authToken) {
       // Clone the request and attach the token
-      console.log(authToken);
       const authReq = req.clone({
         setHeaders: {
           Authorization: `Bearer ${authToken}`
