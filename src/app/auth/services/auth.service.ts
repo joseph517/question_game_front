@@ -49,12 +49,23 @@ export class AuthService {
   }
 
   logout(){
+    localStorage.clear();
     sessionStorage.removeItem('access_token');
   }
 
   getUserData() {
 
     return localStorage.getItem('userName');
+  }
+
+  getUserRole() {
+    if (localStorage.getItem('rol') === 'true') {
+      console.log('Es admin');
+      return true;
+    } else {
+      console.log('No es admin');
+      return false;
+    }
   }
 
   checkAuthentication(): boolean {

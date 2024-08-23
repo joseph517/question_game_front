@@ -10,14 +10,12 @@ export class PublicGuard implements CanActivate {
     private router: Router
   ) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (!this.authService.checkAuthentication()) {
-      // El usuario no está logueado, permite el acceso
-      this.router.navigate(['/auth/login']);
-      return false;
-    } else {
-      // El usuario está logueado, redirige a otra página (por ejemplo, el dashboard)
+canActivate(): boolean {
+    if (this.authService.checkAuthentication()) {
       return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
     }
   }
 }

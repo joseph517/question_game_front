@@ -12,7 +12,9 @@ import { GameFormComponent } from './components/game-form/game-form.component';
 import { QuestionsListComponent } from './pages/questions-list/questions-list.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
 
+
 import { MaterialModule } from '../material/material.module';
+import { HomeAdminModule } from '../home-admin/home-admin.module';
 
 
 
@@ -31,7 +33,8 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    HomeAdminModule
   ]
 })
 export class HomeModule { }
