@@ -7,7 +7,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatRadioModule,
     MatIconModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatDialogModule
   ],
   exports: [
     MatTableModule,
@@ -30,7 +36,17 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatTabsModule
-  ]
+    MatTabsModule,
+    MatExpansionModule,
+    MatDialogModule
+  ],
+  providers: [
+    {
+      provide: MatDialogConfig,
+      useValue: {
+        disableClose: true
+      }
+    }
+  ],
 })
 export class MaterialModule { }

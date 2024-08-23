@@ -1,11 +1,7 @@
-<!-- <div>
-    <div *ngFor="let user of userList" class="card">
-        <home-admin-user-card [user]="user"></home-admin-user-card>
-         asdf
-    </div>
-</div> -->
-
 <div>
+    <div class="m-3">
+        <button mat-raised-button (click)="goToCreateUser()" class="btn btn-primary">Crear usuario</button>
+    </div>
     <div>
         <home-admin-user-table [userList]="userList"></home-admin-user-table>
     </div>

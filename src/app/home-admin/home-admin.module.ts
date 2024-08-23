@@ -9,6 +9,7 @@ import { UserComponent } from './pages/user/user.component';
 import { GamesComponent } from './pages/games/games.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { SharedModule } from "../shared/shared.module";
+import { GameTableComponent } from './components/game-table/game-table.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from "../shared/shared.module";
     AdminNavbarComponent,
     UserComponent,
     GamesComponent,
-    UserTableComponent
+    UserTableComponent,
+    GameTableComponent
   ],
   imports: [
     CommonModule,

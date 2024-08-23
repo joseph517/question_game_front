@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { environment } from 'src/enviroments/enviroments';
 import { User } from '../interface/home-admin.interface';
 import { Observable } from 'rxjs';
@@ -13,7 +12,6 @@ export class UserServiceAdmin {
 
     constructor(
         private http: HttpClient,
-        private router: Router
     ) { }
 
     getUserList(): Observable<User[]> {
