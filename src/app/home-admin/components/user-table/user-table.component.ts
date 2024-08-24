@@ -22,5 +22,4 @@ export class UserTableComponent{
         this.userList = this.userList.filter(usr => usr.id !== user.id);
     })
   }
-
 }

@@ -6,3 +6,9 @@ export interface User {
     // is_active: boolean;
     // is_staff:  boolean;
 }
+
+export interface Game {
+    id?:          number;
+    name_game:   string;
+    description: string;
+}

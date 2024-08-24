@@ -45,7 +45,6 @@ export class UserComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-user-dialog',
   templateUrl: './user-dialog.component.html',
   styleUrls: ['./user.component.css'],
   standalone: true,
@@ -72,7 +71,7 @@ export class UserDialogComponent {
     this.registerUserForm.markAllAsTouched();
 
     if (!this.registerUserForm.valid) {
-      this.sharedService.openSnackbar('Formulario no válido', 'OK', 2000);
+      this.sharedService.openSnackBar('Formulario no válido', 'OK', 2000);
       return;
     }
 
@@ -85,12 +84,12 @@ export class UserDialogComponent {
     this.userServiceAdmin.createUser(user).subscribe(
       (res) => {
         console.log(res);
-        this.sharedService.openSnackbar('Usuario creado', 'OK', 2000);
+        this.sharedService.openSnackBar('Usuario creado', 'OK', 2000);
         this.dialogRef.close('created');
       },
       (err) => {
         console.log('Error al crear el usuario', err);
-        this.sharedService.openSnackbar('Error al crear el usuario', 'OK', 2000);
+        this.sharedService.openSnackBar('Error al crear el usuario', 'OK', 2000);
       }
     );
   }

@@ -32,7 +32,7 @@ export class LoginComponent {
     setTimeout(() => {
       if (!this.loginForm.valid){
         console.log('Formulario no válido');
-        this.sharedService.openSnackbar('Formulario no válido', 'OK', 2000);
+        this.sharedService.openSnackBar('Formulario no válido', 'OK', 2000);
         return;
       }
       const payLoad: UserLogin = {
@@ -43,7 +43,7 @@ export class LoginComponent {
         .subscribe(
         (res) => {
           this.router.navigate(['/home/dashboard']);
-          this.sharedService.openSnackbar('Login correcto', 'OK', 500);
+          this.sharedService.openSnackBar('Login correcto', 'OK', 500);
         },
       (err) => {
         console.log('Error en el login');

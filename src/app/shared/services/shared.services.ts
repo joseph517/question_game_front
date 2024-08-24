@@ -23,7 +23,7 @@ export class SharedService {
         this.router.navigate(['/auth/login']);
     }
 
-    openSnackbar(message: string, action: string, duration?: number) {
+    openSnackBar(message: string, action: string, duration?: number) {
         if(!duration) duration = 2000
         this._snackBar.open(message, action, {
             duration: duration

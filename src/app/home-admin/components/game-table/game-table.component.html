@@ -1,1 +1,25 @@
-<p>game-table works!</p>
+<div *ngIf="gameList.length === 0; else table">
+    <h2>No hay juegos registrados</h2>
+    <shared-loading-spinner></shared-loading-spinner>
+</div>
+<ng-template #table>
+    <h2>Listado de juegos</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let game of gameList">
+                <td>{{game.name_game}}</td>
+                <td>{{game.description}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteGame(game)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+</ng-template>

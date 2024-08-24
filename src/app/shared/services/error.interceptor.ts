@@ -21,7 +21,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           // confirm('Sesión expirada, por favor inicia sesión de nuevo');
-          this.sharedService.openSnackbar('Sesión expirada, por favor inicia sesión de nuevo', 'OK', 2000);
+          this.sharedService.openSnackBar('Sesión expirada, por favor inicia sesión de nuevo', 'OK', 2000);
           this.sharedService.logout();
         }
         // Handle the error here

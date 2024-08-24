@@ -1,1 +1,8 @@
-<p>games works!</p>
+<div>
+    <div class="m-3">
+        <button mat-raised-button (click)="openDialog()" class="btn btn-primary">Crear juego</button>
+    </div>
+    <div>
+        <home-admin-game-table [gameList]="gameList"></home-admin-game-table>
+    </div>
+</div>
