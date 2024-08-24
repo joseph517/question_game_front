@@ -23,6 +23,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           // confirm('Sesión expirada, por favor inicia sesión de nuevo');
           console.log('Sesión expirada, por favor inicia sesión de nuevo');
           localStorage.clear();
+          sessionStorage.removeItem('access_token');
           this.router.navigate(['/auth/login']);
         }
         // Handle the error here

@@ -1,7 +1,7 @@
 <div class="m-3">
   <h1 mat-dialog-title>Crear usuario</h1>
   <div mat-dialog-content>
-    <form [formGroup]="registerUserForm" (ngSubmit)="onSubmit()" >
+    <form [formGroup]="registerUserForm" >
       <div class="form-group">
         <input  type="text"
                 class="form-control"
@@ -22,8 +22,8 @@
                 placeholder="Password"
         >
       </div>
-      <button mat-raised-button (click)="dialogRef.close()" class="btn btn-primary">Cancelar</button>
-      <button mat-raised-button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+    <button mat-raised-button (click)="dialogRef.close()" class="btn btn-primary">Cancelar</button>
+    <button mat-raised-button type="submit" (click)="onSubmit()" class="btn btn-primary">Guardar</button>
   </div>
 </div>

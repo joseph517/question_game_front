@@ -17,5 +17,9 @@ export class UserServiceAdmin {
     getUserList(): Observable<User[]> {
         return this.http.get<User[]>(`${this.baseUrl}/users/list/`)
     }
+
+    createUser(user: User): Observable<User> {
+        return this.http.post<User>(`${this.baseUrl}/users/create/`, user)
+    }
     
 }

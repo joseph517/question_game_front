@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceAdmin } from '../../services/user.service';
 import { User } from '../../interface/home-admin.interface';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-user',
@@ -23,12 +24,22 @@ export class UserComponent implements OnInit {
       this.userList = users;
     }) 
   }
+  loadUserList(): void {
+    this.userServiceAdmin.getUserList().subscribe((users) => {
+      this.userList = users;
+    });
+  }
 
-  goToCreateUser(){
-    console.log('go to create user');
-
-    this.dialog.open(UserDialogComponent, {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(UserDialogComponent, {
       width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'created') {
+        console.log('Creado');
+        this.loadUserList();
+      }
     });
   }
 }
@@ -47,19 +58,35 @@ export class UserDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<UserDialogComponent>,
-    private fb: FormBuilder
+    private userServiceAdmin: UserServiceAdmin
   ) {}
 
-  public registerUserForm: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+  registerUserForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    email: new FormControl('',  [Validators.required, Validators.email], ),
     password: new FormControl('', Validators.required)
-  });
+  })
 
-  onSubmit(){
-    this.registerUserForm.markAllAsTouched()
-    console.log('submit', this.registerUserForm.value);
-    this.dialogRef.close();
+  onSubmit(): void {
+    this.registerUserForm.markAllAsTouched();
+
+    if (!this.registerUserForm.valid) {
+      console.log('Formulario no válido');
+      return;
+    }
+
+    const user: User = {
+      name: this.registerUserForm.get('name')?.value!,
+      email: this.registerUserForm.get('email')?.value!,
+      password: this.registerUserForm.get('password')?.value!
+    };
+
+    this.userServiceAdmin.createUser(user).subscribe(
+      (res) => {
+        console.log('Usuario creado', res);
+        this.dialogRef.close('created');
+      },
+      (err) => console.log('Error al crear el usuario', err)
+    );
   }
-
 }
