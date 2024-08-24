@@ -7,13 +7,13 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { Router } from '@angular/router';
+import { SharedService } from './shared.services';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(
-    private router: Router
+    private sharedService: SharedService
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -21,14 +21,11 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           // confirm('Sesión expirada, por favor inicia sesión de nuevo');
-          console.log('Sesión expirada, por favor inicia sesión de nuevo');
-          localStorage.clear();
-          sessionStorage.removeItem('access_token');
-          this.router.navigate(['/auth/login']);
+          this.sharedService.openSnackbar('Sesión expirada, por favor inicia sesión de nuevo', 'OK', 2000);
+          this.sharedService.logout();
         }
         // Handle the error here
         console.error('error occurred:', error);
-        
         //throw error as per requirement
         return throwError(error);
       })

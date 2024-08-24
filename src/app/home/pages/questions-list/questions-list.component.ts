@@ -20,11 +20,9 @@ export class QuestionsListComponent implements OnInit {
 
   constructor(
     private userService : UserService,
-    private router: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.idGame = this.router.snapshot.params['id']
     this.getQuestionList()
   }
 

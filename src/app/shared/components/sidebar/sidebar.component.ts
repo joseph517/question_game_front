@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { SharedService } from '../../services/shared.services';
 
 @Component({
   selector: 'shared-sidebar',
@@ -10,8 +11,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class SidebarComponent {
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    private sharedService: SharedService
   ) { }
 
   @Input() idGame: string = '';
@@ -26,9 +26,7 @@ export class SidebarComponent {
   ]
 
   logout(){
-    this.authService.logout();
-    localStorage.clear();
-    this.router.navigate(['/login']);
+    this.sharedService.logout();
   }
 
 }

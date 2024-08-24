@@ -1,6 +1,6 @@
 <h2>Listado de usuarios</h2>
 <div *ngIf="userList.length === 0; else table">
-    <h2>Nada que mostrar</h2>
+    <h2>Cargando...</h2>
     <shared-loading-spinner></shared-loading-spinner>
 </div>
 <ng-template #table>

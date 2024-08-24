@@ -48,11 +48,6 @@ export class AuthService {
 
   }
 
-  logout(){
-    localStorage.clear();
-    sessionStorage.removeItem('access_token');
-  }
-
   getUserData() {
 
     return localStorage.getItem('userName');
@@ -72,6 +67,4 @@ export class AuthService {
     if (!sessionStorage.getItem('access_token')) return false;
     return true;
   }
-
-
 }

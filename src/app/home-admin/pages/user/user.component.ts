@@ -3,7 +3,7 @@ import { UserServiceAdmin } from '../../services/user.service';
 import { User } from '../../interface/home-admin.interface';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DialogRef } from '@angular/cdk/dialog';
+import { SharedService } from '../../../shared/services/shared.services';
 
 @Component({
   selector: 'app-user',
@@ -58,7 +58,8 @@ export class UserDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<UserDialogComponent>,
-    private userServiceAdmin: UserServiceAdmin
+    private userServiceAdmin: UserServiceAdmin,
+    private sharedService: SharedService,
   ) {}
 
   registerUserForm = new FormGroup({
@@ -71,7 +72,7 @@ export class UserDialogComponent {
     this.registerUserForm.markAllAsTouched();
 
     if (!this.registerUserForm.valid) {
-      console.log('Formulario no válido');
+      this.sharedService.openSnackbar('Formulario no válido', 'OK', 2000);
       return;
     }
 
@@ -83,10 +84,14 @@ export class UserDialogComponent {
 
     this.userServiceAdmin.createUser(user).subscribe(
       (res) => {
-        console.log('Usuario creado', res);
+        console.log(res);
+        this.sharedService.openSnackbar('Usuario creado', 'OK', 2000);
         this.dialogRef.close('created');
       },
-      (err) => console.log('Error al crear el usuario', err)
+      (err) => {
+        console.log('Error al crear el usuario', err);
+        this.sharedService.openSnackbar('Error al crear el usuario', 'OK', 2000);
+      }
     );
   }
 }

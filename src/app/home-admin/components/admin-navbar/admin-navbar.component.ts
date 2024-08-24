@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/services/shared.services';
 
 
 @Component({
@@ -11,13 +12,14 @@ export class AdminNavbarComponent {
 
   activeTab: string = 'users';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private sharedService: SharedService
+  ) { }
 
 
   logout(){
-    sessionStorage.clear();
-    localStorage.clear();
-    this.router.navigate(['/auth/login']);
+    this.sharedService.logout();
   }
 
 }

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../../interfaces/auth.interface';
+import { SharedService } from 'src/app/shared/services/shared.services';
 
 @Component({
   selector: 'auth-login',
@@ -13,7 +14,8 @@ export class LoginComponent {
 
    constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService    
    ) { }
 
 
@@ -30,6 +32,7 @@ export class LoginComponent {
     setTimeout(() => {
       if (!this.loginForm.valid){
         console.log('Formulario no válido');
+        this.sharedService.openSnackbar('Formulario no válido', 'OK', 2000);
         return;
       }
       const payLoad: UserLogin = {
@@ -40,6 +43,7 @@ export class LoginComponent {
         .subscribe(
         (res) => {
           this.router.navigate(['/home/dashboard']);
+          this.sharedService.openSnackbar('Login correcto', 'OK', 500);
         },
       (err) => {
         console.log('Error en el login');

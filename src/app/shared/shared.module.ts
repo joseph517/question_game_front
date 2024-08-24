@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     SidebarComponent,
     FormsModule,
     ReactiveFormsModule,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    MaterialModule
     ]
 })
 export class SharedModule { }
