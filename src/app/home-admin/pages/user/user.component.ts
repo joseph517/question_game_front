@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceAdmin } from '../../services/user.service';
+import { UserServiceAdmin } from '../../services/user.serviceAdmin';
 import { User } from '../../interface/home-admin.interface';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';

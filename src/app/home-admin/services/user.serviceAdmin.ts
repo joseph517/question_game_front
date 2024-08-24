@@ -21,5 +21,9 @@ export class UserServiceAdmin {
     createUser(user: User): Observable<User> {
         return this.http.post<User>(`${this.baseUrl}/users/create/`, user)
     }
+
+    deleteUser(user_id: number): Observable<User> {
+        return this.http.delete<User>(`${this.baseUrl}/users/delete/${user_id}/`)
+    }
     
 }
