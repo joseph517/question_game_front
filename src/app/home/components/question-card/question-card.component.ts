@@ -4,7 +4,6 @@ import { QuestionList } from '../../interfaces/home.intercaces';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SharedService } from '../../../shared/services/shared.services';
 
 
 @Component({
@@ -34,7 +33,6 @@ export class QuestionCardComponent implements OnChanges, OnInit {
     private userService: UserService,
     private route: Router,
     private _snackBar: MatSnackBar,
-    private sharedService : SharedService
   ){}
 
   ngOnInit(): void {

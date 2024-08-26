@@ -28,16 +28,10 @@ export class UserService {
     }
 
     getQuestionList(idGame: string): Observable<QuestionList[]> {
-        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/${idGame}/`)
-    }
-
-    getRankingGame(idGame: string): Observable<RankingList[]> {
-        const token = this.sharedService.getToken();
-        return this.http.get<any>(`${this.baseUrl}/games/ranking/${idGame}/`)
+        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/${idGame}`)
     }
     
     getValidateQuestion(idQuestion: string, idOption: string): Observable<Validate> {
-        const token = this.sharedService.getToken();
         const formData: FormData = new FormData();
         formData.append('question_id', idQuestion);
         formData.append('option_id', idOption);

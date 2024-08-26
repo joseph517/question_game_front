@@ -1,0 +1,20 @@
+<div *ngIf="rankingList.length === 0; else table">
+    <h2>No hay nada que mostrar</h2>
+    <shared-loading-spinner></shared-loading-spinner>
+</div>
+<ng-template #table>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ranking of rankingList">
+                <td>{{ranking.user__name}}</td>
+                <td>{{ranking.score}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

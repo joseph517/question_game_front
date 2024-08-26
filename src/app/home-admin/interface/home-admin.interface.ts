@@ -12,3 +12,8 @@ export interface Game {
     name_game:   string;
     description: string;
 }
+
+export interface Ranking {
+    user__name: string;
+    score:      number;
+}

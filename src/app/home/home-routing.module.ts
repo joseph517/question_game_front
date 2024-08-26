@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { GamesComponent } from "./pages/games/games.component";
-import { RankingComponent } from "./pages/ranking/ranking.component";
 import { GameListComponent } from "./pages/game-list/game-list.component";
 import { QuestionsListComponent } from "./pages/questions-list/questions-list.component";
 
@@ -22,7 +21,6 @@ const routes: Routes = [
                     { path: '**', redirectTo: 'list' }
                 ]
             },
-            { path: 'ranking/:id', component: RankingComponent },
             { path: '**', redirectTo: 'games' }
         ]
     }

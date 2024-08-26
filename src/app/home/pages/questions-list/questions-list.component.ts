@@ -1,8 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { QuestionList } from '../../interfaces/home.intercaces';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
 
 
 
