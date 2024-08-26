@@ -6,15 +6,8 @@ import { Ranking } from '../../interface/home-admin.interface';
   templateUrl: './ranking-table.component.html',
   styleUrls: ['./ranking-table.component.css']
 })
-export class RankingTableComponent implements OnInit {
+export class RankingTableComponent {
 
   @Input() rankingList: Ranking[] = []
 
-  ngOnInit(): void {
-    console.log(this.rankingList)
-  }
-
-
-
-  
 }

@@ -13,6 +13,7 @@ import { GameTableComponent } from './components/game-table/game-table.component
 import { QuestionsComponent } from './pages/questions/questions.component';
 import { RakingComponent } from './pages/raking/raking.component';
 import { RankingTableComponent } from './components/ranking-table/ranking-table.component';
+import { QuestionTableComponent } from './components/question-table/question-table.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RankingTableComponent } from './components/ranking-table/ranking-table.
     GameTableComponent,
     QuestionsComponent,
     RakingComponent,
-    RankingTableComponent
+    RankingTableComponent,
+    QuestionTableComponent
   ],
   imports: [
     CommonModule,

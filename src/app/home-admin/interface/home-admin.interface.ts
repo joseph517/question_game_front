@@ -17,3 +17,19 @@ export interface Ranking {
     user__name: string;
     score:      number;
 }
+
+export interface Question {
+    id:       number;
+    options:  Option[];
+    question: string;
+    score:    number;
+    game:     number;
+}
+
+export interface Option {
+    id:         number;
+    option:     string;
+    is_correct: boolean;
+    question:   number;
+}
+
