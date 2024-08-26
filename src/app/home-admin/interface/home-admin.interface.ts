@@ -18,13 +18,22 @@ export interface Ranking {
     score:      number;
 }
 
+
 export interface Question {
     id:       number;
     options:  Option[];
+    game:     Game;
     question: string;
     score:    number;
-    game:     number;
 }
+
+export interface QuestionCreate {
+    // id: number;
+    question: string;
+    game: number;
+    score: number;
+}
+
 
 export interface Option {
     id:         number;
@@ -32,4 +41,3 @@ export interface Option {
     is_correct: boolean;
     question:   number;
 }
-

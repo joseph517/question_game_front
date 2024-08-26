@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/enviroments/enviroments';
 import { Observable } from 'rxjs';
-import { Question } from '../interface/home-admin.interface';
+import { Question, QuestionCreate } from '../interface/home-admin.interface';
 
 @Injectable({providedIn: 'root'})
 export class ServiceNameService {
@@ -15,6 +15,10 @@ export class ServiceNameService {
 
     getQuestionList(): Observable<Question[]> {
         return this.http.get<Question[]>(`${this.baseUrl}/questions/list/`)
+    }
+
+    createQuestion(question: QuestionCreate): Observable<Question> {
+        return this.http.post<Question>(`${this.baseUrl}/questions/create/`, question)
     }
     
 }

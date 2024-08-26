@@ -20,8 +20,9 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userServiceAdmin.getUserList().subscribe((users) => {
-      this.userList = users;
+    this.userServiceAdmin.getUserList()
+      .subscribe((users) => {
+        this.userList = users;
     }) 
   }
   loadUserList(): void {

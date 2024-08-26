@@ -25,7 +25,7 @@ export class QuestionsListComponent implements OnInit {
   }
 
   getQuestionList(){
-    this.userService.getQuestionList(this.idGame).subscribe((res) => {
+    this.userService.getQuestionList().subscribe((res) => {
       this.questionList = res
     })
   }

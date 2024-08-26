@@ -27,8 +27,11 @@ export class UserService {
         return this.http.get<Game[]>(`${this.baseUrl}/games/list/`)
     }
 
-    getQuestionList(idGame: string): Observable<QuestionList[]> {
-        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/${idGame}`)
+    getQuestionList(): Observable<QuestionList[]> {
+        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/`)
+    }
+    getQuestionByGame(idGame: string): Observable<QuestionList[]> {
+        return this.http.get<QuestionList[]>(`${this.baseUrl}/questions/list/${idGame}/`)
     }
     
     getValidateQuestion(idQuestion: string, idOption: string): Observable<Validate> {

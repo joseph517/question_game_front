@@ -10,6 +10,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
+
+
 
 
 
@@ -26,7 +32,11 @@ import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     MatTabsModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   exports: [
     MatTableModule,
@@ -38,7 +48,11 @@ import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     MatTabsModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [
     {

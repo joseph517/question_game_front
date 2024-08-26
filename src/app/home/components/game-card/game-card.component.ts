@@ -40,7 +40,7 @@ export class GameCardComponent implements OnInit {
    
    getQuestionList(){
     return new Promise((resolve, reject) => {
-      this.userService.getQuestionList(`${this.game.id}`).subscribe((res) => {
+      this.userService.getQuestionByGame(`${this.game.id}`).subscribe((res) => {
         resolve(res && res.length > 0)
       })
       

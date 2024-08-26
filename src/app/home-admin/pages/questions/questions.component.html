@@ -1,3 +1,8 @@
 <div>
-    <home-admin-question-table [questionList]="questionList"></home-admin-question-table>
+    <div class="m-3">
+        <button mat-raised-button (click)="openDialog()" class="btn btn-primary">Crear Pregunta</button>
+    </div>
+    <div>
+        <home-admin-question-table [questionList]="questionList"></home-admin-question-table>
+    </div>
 </div>
