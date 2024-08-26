@@ -10,6 +10,8 @@
                 <th scope="col">Pregunta</th>
                 <th scope="col">Juego</th>
                 <th scope="col">Puntaje</th>
+                <th scope="col">Ver opciones</th>
+                <th scope="col">Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +19,12 @@
                 <td>{{question.question}}</td>
                 <td>{{question.game.name_game}}</td>
                 <td>{{question.score}}</td>
+                <td>
+                    <button class="btn btn-primary" [routerLink]="['/home-admin/options-question', question.id]">Ver opciones</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteQuestion(question.id)">Eliminar</button>
+                </td>
             </tr>
         </tbody>
     </table>

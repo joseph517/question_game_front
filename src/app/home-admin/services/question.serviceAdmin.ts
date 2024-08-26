@@ -20,5 +20,9 @@ export class ServiceNameService {
     createQuestion(question: QuestionCreate): Observable<Question> {
         return this.http.post<Question>(`${this.baseUrl}/questions/create/`, question)
     }
+
+    deleteQuestion(question_id: number): Observable<Question> {
+        return this.http.delete<Question>(`${this.baseUrl}/questions/delete/${question_id}/`)
+    }
     
 }
