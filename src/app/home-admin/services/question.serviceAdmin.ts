@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Question, QuestionCreate } from '../interface/home-admin.interface';
 
 @Injectable({providedIn: 'root'})
-export class ServiceNameService {
+export class QuestionServiceAdmin {
 
     private baseUrl: string = environment.baseUrl;
 
@@ -23,6 +23,10 @@ export class ServiceNameService {
 
     deleteQuestion(question_id: number): Observable<Question> {
         return this.http.delete<Question>(`${this.baseUrl}/questions/delete/${question_id}/`)
+    }
+
+    deleteOption(option_id: number) {
+        return this.http.delete(`${this.baseUrl}/options/delete/${option_id}/`)
     }
     
 }

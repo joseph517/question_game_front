@@ -20,7 +20,7 @@
                 <td>{{question.game.name_game}}</td>
                 <td>{{question.score}}</td>
                 <td>
-                    <button class="btn btn-primary" [routerLink]="['/home-admin/options-question', question.id]">Ver opciones</button>
+                    <button class="btn btn-primary" (click)="openDialog(question)">Ver opciones</button>
                 </td>
                 <td>
                     <button class="btn btn-danger" (click)="deleteQuestion(question.id)">Eliminar</button>

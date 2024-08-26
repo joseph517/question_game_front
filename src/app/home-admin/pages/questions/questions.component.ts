@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { ServiceNameService } from '../../services/question.serviceAdmin';
+import { QuestionServiceAdmin } from '../../services/question.serviceAdmin';
 import { Game, Question, QuestionCreate } from '../../interface/home-admin.interface';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SharedService } from 'src/app/shared/services/shared.services';
@@ -20,7 +20,7 @@ export class QuestionsComponent implements OnInit {
   questionList: Question[] = [];
   
   constructor(
-    private questionServiceAdmin: ServiceNameService,
+    private questionServiceAdmin: QuestionServiceAdmin,
     private dialog: MatDialog
   ) { }
 
@@ -78,7 +78,7 @@ export class QuestionDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<QuestionDialogComponent>,
-    private questionServiceAdmin: ServiceNameService,
+    private questionServiceAdmin: QuestionServiceAdmin,
     private sharedService: SharedService,
     private gameServiceAdmin: GameServiceAdmin
   ) { }
