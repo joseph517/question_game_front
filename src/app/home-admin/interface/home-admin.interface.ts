@@ -36,8 +36,8 @@ export interface QuestionCreate {
 
 
 export interface Option {
-    id:         number;
-    option:     string;
-    is_correct: boolean;
-    question:   number;
+    id?:         number;
+    option:      string;
+    is_correct:  boolean;
+    question: number;
 }

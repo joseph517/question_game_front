@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/enviroments/enviroments';
 import { Observable } from 'rxjs';
-import { Question, QuestionCreate } from '../interface/home-admin.interface';
+import { Question, QuestionCreate, Option } from '../interface/home-admin.interface';
 
 @Injectable({providedIn: 'root'})
 export class QuestionServiceAdmin {
@@ -23,6 +23,12 @@ export class QuestionServiceAdmin {
 
     deleteQuestion(question_id: number): Observable<Question> {
         return this.http.delete<Question>(`${this.baseUrl}/questions/delete/${question_id}/`)
+    }
+
+    // OPTIONS
+
+    createOption(option: Option): Observable<Option> {
+        return this.http.post<Option>(`${this.baseUrl}/options/create/`, option)
     }
 
     deleteOption(option_id: number) {

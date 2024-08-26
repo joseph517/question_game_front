@@ -14,10 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
-
-
-
-
+import {MAT_CHECKBOX_DEFAULT_OPTIONS, MatCheckboxDefaultOptions, MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -36,7 +33,8 @@ import {FormsModule} from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule
   ],
   exports: [
     MatTableModule,
@@ -52,7 +50,8 @@ import {FormsModule} from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule
   ],
   providers: [
     {
@@ -60,6 +59,10 @@ import {FormsModule} from '@angular/forms';
       useValue: {
         disableClose: true
       }
+    },
+    {
+      provide: MAT_CHECKBOX_DEFAULT_OPTIONS, 
+      useValue: { clickAction: 'check' } as MatCheckboxDefaultOptions
     }
   ],
 })
