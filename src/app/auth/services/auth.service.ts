@@ -14,11 +14,7 @@ export class AuthService {
 
   private baseUrl: string = environment.baseUrl;
 
-  constructor(
-
-    private http: HttpClient
-
-  ) { }
+  constructor(private http: HttpClient) { }
 
   /**
    * Checks if a field in a FormGroup is valid and has been touched.
@@ -30,7 +26,6 @@ export class AuthService {
    *                            and null if the field does not exist in the FormGroup.
    */
   isValidField(form: FormGroup, field: string): boolean | null {
-    
     return form.controls[field].errors && form.controls[field].touched
   }
 
@@ -55,10 +50,8 @@ export class AuthService {
 
   getUserRole() {
     if (localStorage.getItem('rol') === 'true') {
-      console.log('Es admin');
       return true;
     } else {
-      console.log('No es admin');
       return false;
     }
   }

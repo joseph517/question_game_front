@@ -14,7 +14,6 @@ export class UserService {
 
     constructor(
         private http: HttpClient,
-        private sharedService: SharedService
     ){ }
 
     getUsersData(): string {
@@ -38,7 +37,6 @@ export class UserService {
         const formData: FormData = new FormData();
         formData.append('question_id', idQuestion);
         formData.append('option_id', idOption);
-
         return this.http.post<Validate>(`${this.baseUrl}/questions/validate/`, formData)
     }
     
