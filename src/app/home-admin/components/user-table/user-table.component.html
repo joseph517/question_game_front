@@ -9,6 +9,7 @@
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Agregar Juego</th>
                 <th scope="col">Eliminar</th>
             </tr>
         </thead>
@@ -16,6 +17,9 @@
             <tr *ngFor="let user of userList">
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="openDialog(user.id!)">Añadir Juego</button>
+                </td>
                 <td>
                     <button class="btn btn-danger" (click)="deleteUser(user)">Eliminar</button>
                 </td>

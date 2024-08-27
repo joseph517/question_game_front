@@ -41,3 +41,14 @@ export interface Option {
     is_correct:  boolean;
     question: number;
 }
+
+export interface AssignGameToUser {
+    user_id:  number;
+    game_id:  number;
+    // score: number;
+}
+
+export interface ListGameByUser{
+    id: number;
+    name_game: string;
+}

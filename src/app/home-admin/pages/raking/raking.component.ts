@@ -26,7 +26,6 @@ export class RakingComponent implements OnInit {
     this.gameServiceAdmin.getRankingGame(game_id!)
       .subscribe((res)=>{
         this.rankingList = res
-        console.log('ranking',this.rankingList)
       })
   }
 }
