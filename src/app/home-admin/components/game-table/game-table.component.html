@@ -21,7 +21,12 @@
                     <button class="btn btn-primary" [routerLink]="['/home-admin/ranking-game', game.id]">Ver Ranking</button>
                 </td>
                 <td>
-                    <button class="btn btn-danger" (click)="deleteGame(game)">Eliminar</button>
+                    <button mat-fab 
+                            class="btn btn-danger" 
+                            color="warn"
+                            (click)="deleteGame(game)">
+                            <mat-icon>delete</mat-icon>
+                    </button>
                 </td>
             </tr>
         </tbody>

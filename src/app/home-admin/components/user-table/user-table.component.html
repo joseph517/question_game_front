@@ -21,7 +21,11 @@
                     <button class="btn btn-primary" (click)="openDialog(user.id!)">Añadir Juego</button>
                 </td>
                 <td>
-                    <button class="btn btn-danger" (click)="deleteUser(user)">Eliminar</button>
+                    <button mat-fab 
+                            color="warn" 
+                            (click)="deleteUser(user)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </td>
             </tr>
         </tbody>
