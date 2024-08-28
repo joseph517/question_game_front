@@ -26,10 +26,18 @@ export class UserTableComponent{
   ) { }
 
   deleteUser(user: User): void {
+    const userLogged = +localStorage.getItem('user_id')!;
+
+    if(user.id === userLogged) {
+      return this.sharedService.openSnackBar('No puedes borrar a ti mismo', 'error');
+    }
+
     this.userServiceAdmin.deleteUser(user.id!)
       .subscribe(() => {
-        this.userList = this.userList.filter(usr => usr.id !== user.id);
-    })
+        this.sharedService.openSnackBar('Usuario eliminado', 'Ok');
+        this.userList = this.userList.filter(userArr => userArr.id !== user.id);
+      }
+    )
   }
 
   openDialog(user_id: number): void {
